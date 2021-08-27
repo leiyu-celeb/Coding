@@ -34,5 +34,5 @@ var rob = function(nums) {
 }
 
 var rob = function(nums) {
-     
+
 }
