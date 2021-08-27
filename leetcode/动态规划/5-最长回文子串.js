@@ -67,4 +67,3 @@ const palindrome = function(s, l, r) {
     }
     return s.substr(l + 1, r - l - 1);
 }
-
