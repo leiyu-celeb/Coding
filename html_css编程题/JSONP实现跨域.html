@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+    var script = document.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.src = 'http://123.207.32.32:8000/home/multidata?callback=handleCallback';
+
+    document.head.appendChild(script);
+
+    function handleCallback(res){
+        console.log(res);
+    }
+</script>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.absolute + 负margin 
+           2.absolute + auto margin && left,right,top,bottom: 0;
+           3.absolute + calc()
+           4.absolute + transform:translate 
+           5.flex 三件套display:center; justify-content:center; align-items:center;
+           6.table-cell   display:table-cell; text-align:center; vertical-align:middle; 子元素display:inline-block;
+           7.grid  类似flex(包括父容器指定子元素位置 和 子元素自己决定位置align-self:center; justify-self:center)
+        */
+
+        .outer {
+            display: grid;
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+        }
+        .inner {
+            /* display: inline-block; */
+            align-self: center;
+            justify-self: center;
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+            /* transform: translate(-50%, -50%); */
+            /* margin-left: -50px; */
+            /* margin-top: -50px; */
+        }
+    </style>
+
+</head>
+<body>
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+</body>
+</html>
