@@ -32,7 +32,3 @@ var rob = function(nums) {
      }
      return dp[len];
 }
-
-var rob = function(nums) {
-
-}
