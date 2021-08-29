@@ -23,11 +23,11 @@
  * @return {void} Do not return anything, modify s in-place instead.
  */
 //方法一： Array.prototype.reverse()
-// var reverseString = function(s) {
-//     return s.reverse();
-// };
+var reverseString = function(s) {
+    return s.reverse();
+};
 
-//方法二：解构赋值反转字符串
+//方法二：双指针 + 解构赋值反转字符串
 var reverseString = function(s) {
     let i = 0, j = s.length - 1;
     while(i < j){

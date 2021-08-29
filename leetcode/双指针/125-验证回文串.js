@@ -4,14 +4,14 @@
 说明：本题中，我们将空字符串定义为有效的回文串。
 
 示例 1:
-
 输入: "A man, a plan, a canal: Panama"
 输出: true
+解释："amanaplanacanalpanama" 是回文串
 
 示例 2:
-
 输入: "race a car"
-输出: false 
+输出: false
+解释："raceacar" 不是回文串
 */
 
 
@@ -43,6 +43,24 @@ var isPalindrome = function(s) {
 };
 
 
-let s = "A man, a plan, a canal: Panama";
-
-console.log(isPalindrome(s));
+var isPalindrome = function(s) {
+    let i = 0, j = s.length - 1;
+    let reg = /[a-zA-Z0-9]/;
+    while(i < j) {
+        if(!reg.test(s[i])) {
+            i++;
+            continue;
+        }
+        if(!reg.test(s[j])) {
+            j--;
+            continue;
+        }
+        if(s[i].toLowerCase() === s[j].toLowerCase()) {
+            i++;
+            j--;
+        }else{
+            return false;
+        }
+    }
+    return true;
+}

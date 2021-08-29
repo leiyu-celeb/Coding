@@ -97,3 +97,22 @@ var reverseList = function(head) {
 
 
 
+var isPalindrome = function(head) {
+  if(!head || !head.next) return true;
+  let slow = head, fast = head, pre = null;
+  while(fast && fast.next) {
+    pre = slow;
+    slow = slow.next;
+    fast = fast.next.next;
+  }
+  pre.next = null;
+  let head2 = reverseList(slow);
+  while(head && head2) {
+    if(head.val !== head2.val) {
+      return false;
+    }
+    head = head.next;
+    head2 = head2.next;
+  }
+  return true;
+}
