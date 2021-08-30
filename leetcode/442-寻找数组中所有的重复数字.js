@@ -18,21 +18,21 @@
 */
 
 
-// /**
-//  * @param {number[]} nums
-//  * @return {number[]}
-//  */
-// var findDuplicates = function(nums) {
-//     const s = new Set();
-//     let arr = [];
-//     for(let item of nums){
-//         if(s.has(item)){
-//             arr.push(item);
-//         }
-//         s.add(item);
-//     }
-//     return arr;
-// };
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var findDuplicates = function(nums) {
+    const s = new Set();
+    let arr = [];
+    for(let item of nums){
+        if(s.has(item)){
+            arr.push(item);
+        }
+        s.add(item);
+    }
+    return arr;
+};
 
 //不用额外的空间，并以O(n)时间复杂度解决
 /**

@@ -8,23 +8,19 @@
 
 返回她可以在 H 小时内吃掉所有香蕉的最小速度 K（K 为整数）。
 
- 
-
 示例 1：
-
 输入: piles = [3,6,7,11], H = 8
 输出: 4
-示例 2：
 
+示例 2：
 输入: piles = [30,11,23,4,20], H = 5
 输出: 30
+
 示例 3：
-
 输入: piles = [30,11,23,4,20], H = 6
-输出: 23 */
+输出: 23 
 
-
-
+*/
 
 /**
  * @param {number[]} piles
@@ -35,9 +31,8 @@ var minEatingSpeed = function(piles, H) {
     // 根据题意，一个小时最少吃1根香蕉，最多吃max(piles)根香蕉，因此K的取值为[1, max(piles)]
     // 连续区间线性查找问题，利用二分查找优化查找效率
     let left = 1, right = Math.max(...piles) + 1;
-    let mid;
     while(left < right){
-        mid = left + Math.floor((right - left) / 2);
+        let mid = Math.floor((right - left) / 2) + left;
         if(canFinish(piles, mid, H)){ //能在H小时吃掉所有香蕉, 于是考虑是否可以得到一个更小的speed，然后将right = mid
             right = mid;
         } else {    //速度为mid时，吃不完所有香蕉时，速度要加快，因此left = mid + 1，搜索区间调整为右边
@@ -50,7 +45,7 @@ var minEatingSpeed = function(piles, H) {
 const canFinish = function(piles, speed, H){
     let time = 0;
     for(let heap of piles){
-        time = time + Math.floor(heap / speed) + ( (heap % speed > 0) ? 1 : 0) ;
+        time += Math.floor(heap / speed) + ( (heap % speed > 0) ? 1 : 0) ;
     }
     if(time <= H){ //能在H小时内吃掉所有香蕉
         return true;
@@ -59,8 +54,27 @@ const canFinish = function(piles, speed, H){
     }
 }
 
+var minEatingSpeed = function(piles, H) {
+    let left = 1, right = Math.max(...piles) + 1;
+    while(left < right) {
+        let mid = Math.floor((right - left) / 2) + left;
+        if(canFinish(piles, mid, H)) {
+            right = mid;
+        }else{
+            left = mid + 1;
+        }
+    }
+    return left;
+}
 
-let piles = [3,6,7,11], H = 8
+var canFinish = function(piles, speed, H) {
+    let time = 0;
+    for(let heap of piles) {
+        timer += Math.floor(heap / speed) + (heap % speed > 0 ? 1 : 0);
+    }
+    return time <= H;
+}
 
 
+let piles = [3,6,7,11], H = 8;
 console.log(minEatingSpeed(piles, H));

@@ -53,15 +53,28 @@ function throttle(fn, delay) {
 
 function throttle(fn, delay) {
     var timer = null;
-    return function() {
+    return function(...args) {
         var context = this;
-        var args = arguments;
-        if(!timer){
+        if(!timer) {
             timer = setTimeout(() => {
                 fn.apply(context, args);
                 timer = null;
-            }, delay)
+            }, delay);
         }
     }
 }
 
+
+
+function throttle(fn, delay) {
+    var timer = null;
+    return function(...args) {
+        var context = this;
+        if(!timer) {
+            timer = setTimeout(() => {
+                fn.apply(context, args);
+                timer = null;
+            }, delay);
+        }
+    }
+}

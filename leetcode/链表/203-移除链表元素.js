@@ -30,3 +30,18 @@ var removeElements = function(head, val) {
     return dummyHead.next;
 };
 
+var removeElements = function(head, val) {
+    const dummyHead = new ListNode(0, head);
+    let pre = dummyHead, cur = head;
+    while(cur) {
+        if(cur.val === val) {
+            pre.next = cur.next;
+            cur = pre.next;
+        }else{
+            pre = pre.next;
+            cur = cur.next;
+        }
+    }
+    return dummyHead.next;
+}
+

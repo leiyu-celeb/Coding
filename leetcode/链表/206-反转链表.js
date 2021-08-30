@@ -34,7 +34,6 @@ var reverseList = function(head) {
     return last;    
 };
 
-
 var reverseList = function(head) {
     if(!head || !head.next) {
         return head;
@@ -44,7 +43,6 @@ var reverseList = function(head) {
     head.next = null;
     return last;
 }
-
 
 //迭代实现：
 var reverseListNoRecursion = function(head) {
@@ -61,6 +59,17 @@ var reverseListNoRecursion = function(head) {
 var reverseListNoRecursion = function(head) {
     let pre = null, cur = head, nxt = head;
     while(cur != null) {
+        nxt = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = nxt;
+    }
+    return pre;
+}
+
+var reverseListNoRecursion = function(head) {
+    let pre = null, cur = head, nxt = head;
+    while(cur) {
         nxt = cur.next;
         cur.next = pre;
         pre = cur;

@@ -17,17 +17,6 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
- var swapPairs = function(head) {
-    if(head === null || head.next === null) {
-        return head;
-    }
-    const newHead = head.next;      //指向第二个节点
-    head.next = swapPairs(head.next.next);
-    newHead.next = head;
-    return newHead;
-};
-
-
 var swapPairs = function(head) {
     if(!head || !head.next) {
         return head;
@@ -37,7 +26,6 @@ var swapPairs = function(head) {
     newHead.next = head;
     return newHead;
 }
-
 
 var swapPairs = function(head) {
     if(!head || !head.next) {

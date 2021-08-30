@@ -57,6 +57,19 @@ function debounce(fn, wait) {
     }
 }
 
+function debounce(fn, wait) {
+    var timer = null;
+    return function(...args) {
+        if(timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, args);
+            timer = null;
+        }, wait);
+    }
+}
+
 function handle(){  //事件处理函数，触发事件时执行
     console.log(111);
 }
@@ -65,15 +78,30 @@ window.addEventListener('click', debounce(handle, 1000))
 
 
 
-function debounce(fn, wait){
+
+
+function debounce(fn, wait) {
     var timer = null;
-    return function(...args){
-        if(timer){
+    return function(...args) {
+        if(timer) {
             clearTimeout(timer);
         }
         timer = setTimeout(() => {
             fn.apply(this, args);
             timer = null;
-        }, wait)
+        }, wait);
+    }
+}
+
+function debounce(fn, wait) {
+    var timer = null;
+    return function(...args) {
+        if(timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, args);
+            timer = null;
+        }, wait);
     }
 }

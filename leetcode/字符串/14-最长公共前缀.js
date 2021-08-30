@@ -21,7 +21,7 @@ strs[i] 仅由小写英文字母组成 */
  * @param {string[]} strs
  * @return {string}
  */
- var longestCommonPrefix = function(strs) {
+var longestCommonPrefix = function(strs) {
     if(strs.length === 0) return "";
     let prefix = strs[0];
     for(let i = 1; i < strs.length; i++){
@@ -38,6 +38,26 @@ var getCommonPrefix = function(str1, str2) {
     let index = 0;
     let minLen = Math.min(str1.length, str2.length);
     while(index < minLen && str1[index] === str2[index]){
+        index++;
+    }
+    return str1.substring(0, index);
+}
+
+
+var longestCommonPrefix = function(strs) {
+    if(strs.length === 0) return '';
+    let prefix = strs[0];
+    for(let i = 1; i < strs.length; i++) {
+        prefix = getCommonPrefix(prefix, strs[i]);
+        if(prefix.length === 0) break;
+    }
+    return prefix;
+}
+
+var getCommonPrefix = function(str1, str2) {
+    let index = 0;
+    let minLen = Math.min(str1.length, str2.length);
+    while(index < minLen && str1[index] == str2[index]) {
         index++;
     }
     return str1.substring(0, index);

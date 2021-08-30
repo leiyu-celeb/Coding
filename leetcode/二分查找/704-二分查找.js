@@ -32,9 +32,8 @@ nums 的每个元素都将在 [-9999, 9999]之间。 */
  */
 var search = function(nums, target) {
     let left = 0, right = nums.length - 1;
-    let mid;
     while(left <= right){
-        mid = Math.floor((right + left) / 2);
+        let mid = Math.floor((right - left) / 2) + left;
         if(nums[mid] == target){
             return mid;
         }else if(nums[mid] > target){

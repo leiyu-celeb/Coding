@@ -5,23 +5,19 @@
 给出数字到字母的映射如下（与电话按键相同）。注意 1 不对应任何字母。
 
 示例 1：
-
 输入：digits = "23"
 输出：["ad","ae","af","bd","be","bf","cd","ce","cf"]
 
 示例 2：
-
 输入：digits = ""
 输出：[]
 
 示例 3：
-
 输入：digits = "2"
 输出：["a","b","c"]
  
 
 提示：
-
 0 <= digits.length <= 4
 digits[i] 是范围 ['2', '9'] 的一个数字。 */
 
@@ -70,26 +66,6 @@ const letterCombinations = function(digits) {
     }
     dfs('', 0);
     return res;
-}
-
-const letterCombinations = function(digits) {
-  if(digits.length === 0) return [];
-  const res = [];
-  const map = { '2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz' };
-  
-  const dfs =  function(curStr, i) {
-    if(i > digits.length - 1) {
-      res.push(curStr);
-      return ;
-    }
-    const letters = map[digits[i]];
-    for(let letter of letters) {
-      dfs(curStr + letter, i + 1);
-    }
-  }
-
-  dfs('', 0);
-  return res;
 }
 
 

@@ -29,20 +29,20 @@ n == matrix[i].length
  * @return {boolean}
  */
 //方法一：两重循环暴力搜索
-// var searchMatrix = function(matrix, target) {
-//     if(!matrix.length || !matrix[0].length) return false;
-//     let rows = matrix.length, columns = matrix[0].length;
-//     for(let i = 0; i < rows; i++) {
-//         for(let j = 0; j < columns; j++) {
-//             if(matrix[i][j] === target){
-//                 return true;
-//             }
-//         }
-//     }
-//     return false;
-// };
+var searchMatrix = function(matrix, target) {
+    if(!matrix.length || !matrix[0].length) return false;
+    let rows = matrix.length, columns = matrix[0].length;
+    for(let i = 0; i < rows; i++) {
+        for(let j = 0; j < columns; j++) {
+            if(matrix[i][j] === target){
+                return true;
+            }
+        }
+    }
+    return false;
+};
 
-
+// 方法二：搜索空间缩减
 var searchMatrix = function(matrix, target) {
     if(!matrix.length || !matrix[0].length) return false;          //判空
     let [x, y] = [matrix[0].length - 1, 0];             // 初始化位置
@@ -57,3 +57,8 @@ var searchMatrix = function(matrix, target) {
     }
     return false;
 };
+
+
+
+
+

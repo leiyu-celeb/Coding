@@ -1,16 +1,16 @@
 // 字节面试题：实现一个多次执行的有间隔的定时器函数repeat
 // 需要实现的函数
 function repeat (func, times, wait) {
-    // return async function(...args){
-    //     for(let i = 0; i < times; i++){
-    //         await new Promise((resolve, reject) => {
-    //             setTimeout(()=> {
-    //                 func.apply(this, args);
-    //                 resolve();
-    //             }, wait)
-    //         })
-    //     }
-    // }   
+    return async function(...args){
+        for(let i = 0; i < times; i++){
+            await new Promise((resolve, reject) => {
+                setTimeout(()=> {
+                    func.apply(this, args);
+                    resolve();
+                }, wait)
+            })
+        }
+    }   
 }
 
 // 使下面调用代码能正常工作
@@ -26,7 +26,7 @@ function repeat(func, times, wait){
                     func.apply(this, args);
                     resolve();
                 }, wait)                
-            })
+            });
         }
     }
 }

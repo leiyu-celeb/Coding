@@ -69,3 +69,26 @@ var rotateRight = function(head, k) {
     return ret;
 }
 
+var rotateRight = function(head, k) {
+    if(k === 0 || !head || !head.next) {
+        return head;
+    }
+    let num = 1;
+    let cur = head;
+    while(cur) {
+        cur = cur.next;
+        num++;
+    }
+    let add = num - k % num;
+    if(add === num) {
+        return head;
+    }
+    cur.next = head;
+    while(add) {
+        cur = cur.next;
+        add--;
+    }
+    const newHead = cur.next;
+    cur.next = null;
+    return newHead;
+}

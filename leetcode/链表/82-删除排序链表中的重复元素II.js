@@ -46,3 +46,20 @@ var deleteDuplicates = function(head) {
     }
     return dummyHead.next;
 }
+
+var deleteDuplicates = function(head) {
+    if(!head) return head;
+    const dummyHead = new ListNode(0, head);
+    let cur = dummyHead;
+    while(cur.next && cur.next.next) {
+        if(cur.next.val === cur.next.next.val) {
+            const val = cur.next.val;
+            while(cur.next && cur.next.val === val) {
+                cur.next = cur.next.next;
+            }
+        }else{
+            cur = cur.next;
+        }
+    }
+    return dummyHead.next;
+}

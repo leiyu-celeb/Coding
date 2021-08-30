@@ -1,6 +1,6 @@
-# my coding directory
+# My Coding Directory
 
-### 1.leetcode 刷题
+### 1.leetcode
 
 ### 2.剑指 offer
 

@@ -17,10 +17,22 @@ function flat(arr) {
     return result;
 }
 
+function flat(arr) {
+    let result = [];
+    arr.forEach(item => {
+        if(Array.isArray(item)) {
+            result = result.concat(flat(item));
+        }else{
+            result.push(item);
+        }
+    })
+}
+
+
 const arr = [1, 2, 3, 4, [1, 2, 3, [1, 2, 3, [1, 2, 3]]], 5, "string", { name: "弹铁蛋同学" }];
 
 
-//for...of遍历数组
+// for...of遍历数组
 function flat111(arr) {
     let result = [];
     for(let item of arr){
@@ -41,6 +53,16 @@ const flat2 = (arr) => {
     return arr.reduce((prev, curr) => {
         if(Array.isArray(curr)){  //遇到了数组，递归调用
             return prev.concat(flat2(curr));
+        }else{
+            return prev.concat(curr);
+        }
+    }, []);
+}
+
+const flat = (arr) => {
+    return arr.reduce((prev, curr) => {
+        if(Array.isArray(curr)) {
+            return prev.concat(flat(curr));
         }else{
             return prev.concat(curr);
         }

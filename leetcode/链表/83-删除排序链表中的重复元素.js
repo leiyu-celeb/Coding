@@ -31,43 +31,11 @@ var deleteDuplicates = function(head) {
     return head;
 };
 
-
-
 var deleteDuplicates = function(head) {
     if(!head) return null;
     let slow = head, fast = head;
     while(fast) {
-        if(fast.val != slow.val) {
-            slow.next = fast;
-            slow = slow.next;
-        }
-        fast = fast.next;
-    }
-    slow.next = null;
-    return head;
-}
-
-var deleteDuplicates = function(head) {
-    if(!head) return null;
-    let slow = head, fast = head;
-    while(fast != null) {
-        if(fast.val != slow.val) {
-            slow.next = fast;
-            slow = slow.next;
-        }
-        fast = fast.next;
-    }
-    slow.next = null;
-    return head;
-}
-
-
-
-var deleteDuplicates = function(head) {
-    if(!head) return null;
-    let slow = head, fast = head;
-    while(fast != null) {
-        if(fast.val != slow.val) {
+        if(slow.val != fast.val) {
             slow.next = fast;
             slow = slow.next;
         }

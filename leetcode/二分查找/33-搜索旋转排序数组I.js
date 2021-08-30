@@ -7,7 +7,6 @@
 
 给你 旋转后 的数组 nums 和一个整数 target ，如果 nums 中存在这个目标值 target ，则返回它的下标，否则返回 -1 。
 
- 
 
 示例 1：
 输入：nums = [4,5,6,7,0,1,2], target = 0
@@ -46,11 +45,9 @@ var search = function(nums, target) {
             return mid;
         }
         /***
-         * 如果中间的数小于最右边的数，
-         * 则右半段是有序的，
-         * 若中间数大于最右边数，
-         * 则左半段是有序的
-         * */
+         * 如果中间的数小于最右边的数，则右半段是有序的
+         * 若中间数大于最右边数，则左半段是有序的
+         */
         if (nums[mid] < nums[right]) {
         /**
          * 有序的半段里用首尾两个数组来判断目标值是否在这一区域内，
@@ -71,3 +68,28 @@ var search = function(nums, target) {
     }
     return -1;
 };
+
+
+var search = function(nums, target) {
+    let left = 0, right = nums.length - 1;
+    while(left <= right) {
+        let mid = Math.floor((right - left) / 2) + left;
+        if(nums[mid] === target) {
+            return mid;
+        }
+        if(nums[mid] < nums[right]) {   //右边有序
+            if(nums[mid] < target && target <= nums[right]) {
+                left = mid + 1;
+            }else{
+                right = mid - 1;
+            }
+        }else{      //左边有序
+            if(nums[left] <= target && target < nums[mid]) {
+                right = mid - 1;
+            }else{
+                left = mid + 1;
+            }
+        }
+    }
+    return -1;
+}

@@ -21,3 +21,12 @@ var middleNode = function(head) {
     }
     return slow;
 };
+
+var middleNode = function(head) {
+    let slow = head, fast = head;
+    while(fast && fast.next) {
+        slow = slow.next;
+        fast = fast.next;
+    }
+    return slow;
+}

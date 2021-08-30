@@ -84,3 +84,21 @@ var getIntersectionNode = function(headA, headB) {
     return p;
 }
 
+
+var getIntersectionNode = function(headA, headB) {
+    if(!headA || !headB) return null;
+    let p = headA, q = headB;
+    while(p != q) {
+        if(p) {
+            p = p.next;
+        }else{
+            p = headA;
+        }
+        if(q) {
+            q = q.next;
+        }else{
+            q = headB;
+        }
+    }
+    return p;
+}

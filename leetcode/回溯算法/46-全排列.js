@@ -66,3 +66,23 @@ var permute = function(nums) {
     return result;
 }
 
+var permute = function(nums) {
+    const result = [];
+    const used = {};
+    const dfs = function(path) {
+        if(path.length === nums.length) {
+            result.push(path.slice());
+            return ;
+        }
+        for(let num of nums) {
+            if(used[num]) continue;
+            path.push(num);
+            used[num] = true;
+            dfs(path);
+            path.pop();
+            used[num] = false;
+        }
+    }
+    dfs([]);
+    return result;
+}

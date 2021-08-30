@@ -55,6 +55,20 @@ var isPalindrome = function(head) {
 }
 
 
+var isPalindrome = function(head) {
+    const res = [];
+    while(head) {
+        res.push(head.val);
+        head = head.next;
+    }
+    for(let i = 0, j = res.length - 1; i < j; i++, j--) {
+        if(res[i] != res[j]) {
+            return false;
+        }
+    }
+    return true;
+}
+
 
 /**
  * @description: 

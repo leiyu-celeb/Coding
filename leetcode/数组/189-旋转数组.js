@@ -40,12 +40,32 @@ var rotate = function(nums, k) {
     }
 };
 
+let nums = [1,2,3,4,5,6,7], k = 3;
+
+console.log(rotate(nums, k));
+
 //方法二： pop + unshift 循环k次
 
 //方法三： nums.splice(0, 0, ...nums.splice(nums.length - k))
 
 //方法四：splice + unshift   剪切 + 粘贴
 
-let nums = [1,2,3,4,5,6,7], k = 3;
+//方法五：数组翻转
+const reverse = (nums, start, end) => {
+    while (start < end) {
+        const temp = nums[start];
+        nums[start] = nums[end];
+        nums[end] = temp;
+        start++;
+        end--;
+    }
+}
 
-console.log(rotate(nums, k));
+var rotate = function(nums, k) {
+    k = k % nums.length;
+    reverse(nums, 0, nums.length - 1);   // 翻转整个数组
+    reverse(nums, 0, k - 1);            // 翻转 [0, k-1]
+    reverse(nums, k, nums.length - 1);  // 翻转 [k, nums.length-1]
+};
+
+

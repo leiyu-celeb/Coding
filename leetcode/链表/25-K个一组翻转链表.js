@@ -75,6 +75,16 @@ var reverseKGroup = function(head, k) {
 }
 
 
+var reverse = function(a, b) {
+    let pre = null, cur = a, nxt = a;
+    while(cur != b) {
+        nxt = cur.next;
+        cur.next = pre;
+        pre = cur;
+        cur = nxt;
+    }
+    return pre;
+}
 var reverseKGroup = function(head, k) {
     if(!head) return head;
     let a = head, b = head;
@@ -85,14 +95,4 @@ var reverseKGroup = function(head, k) {
     let newHead = reverse(a, b);
     a.next = reverseKGroup(b, k);
     return newHead;
-}
-var reverse = function(a, b) {
-    let pre = null, cur = a, nxt = a;
-    while(cur != b) {
-        nxt = cur.next;
-        cur.next = pre;
-        pre = cur;
-        cur = nxt;
-    }
-    return pre;
 }
