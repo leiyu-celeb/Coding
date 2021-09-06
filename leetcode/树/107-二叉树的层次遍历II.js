@@ -30,7 +30,7 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
- var levelOrderBottom = function(root) {
+var levelOrderBottom = function(root) {
     if(!root) return [];
     let result = [];
     let queue = [];

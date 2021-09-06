@@ -5,8 +5,8 @@
 提示：
 
 树中的节点数为 n 。
-1 <= k <= n <= 104
-0 <= Node.val <= 104
+1 <= k <= n <= 10^4
+0 <= Node.val <= 10^4
  
 
 进阶：如果二叉搜索树经常被修改（插入/删除操作）并且你需要频繁地查找第 k 小的值，你将如何优化算法？
@@ -25,7 +25,7 @@
  * @param {number} k
  * @return {number}
  */
- var kthSmallest = function(root, k) {
+var kthSmallest = function(root, k) {
     let res = 0;   //保存中序遍历第k个节点的值
     const inorderTraverse = (node) => {
         if(node){

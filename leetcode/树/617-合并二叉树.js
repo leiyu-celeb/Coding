@@ -6,7 +6,7 @@
 示例 1:
 
 输入: 
-	Tree 1                     Tree 2                  
+	    Tree 1                     Tree 2                  
           1                         2                             
          / \                       / \                            
         3   2                     1   3                        
@@ -28,7 +28,7 @@
  * @param {TreeNode} root2
  * @return {TreeNode}
  */
- var mergeTrees = function(root1, root2) {
+var mergeTrees = function(root1, root2) {
     if(!root1 && !root2) return null;
     if(!root1) {
         return root2;
@@ -42,3 +42,14 @@
     merge.right = mergeTrees(root1.right, root2.right);
     return merge;
 };
+
+
+var mergeTrees = function(root1, root2) {
+    if(!root1 && !root2) return null;
+    if(!root1) return root2;
+    if(!root2) return root1;
+    let mergeRoot = new TreeNode(root1.val + root2.val);
+    mergeRoot.left = mergeTrees(root1.left, root2.left);
+    mergeRoot.right = mergeTrees(root1.right, root2.right);
+    return mergeRoot;
+}
