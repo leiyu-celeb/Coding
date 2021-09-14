@@ -105,3 +105,17 @@ function debounce(fn, wait) {
         }, wait);
     }
 }
+
+
+function debounce(fn, wait) {
+    var timer = null;
+    return function(...args){
+        if(timer) {
+            clearTimeout(timer);
+        }
+        timer = setTimeout(() => {
+            fn.apply(this, args);
+            timer = null;
+        }, wait);
+    }
+}

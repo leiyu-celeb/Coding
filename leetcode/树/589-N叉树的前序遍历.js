@@ -44,6 +44,23 @@ var preorder = function(root) {
     return res;
 };
 
+var preorder = function(root) {
+    const res = [];
+
+    function dfs(root) {
+        if(root) {
+            res.push(root.val);
+            root.children.forEach(child => {
+                dfs(child);
+            })
+        }
+    }
+
+    dfs(root);
+    return res;
+}
+
+
 //迭代法：
 var preorder = function(root) {
     if (root === null) {
@@ -62,3 +79,5 @@ var preorder = function(root) {
     }
     return res;
 };
+
+

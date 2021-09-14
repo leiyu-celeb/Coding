@@ -4,7 +4,6 @@
 
 N 叉树 在输入中按层序遍历进行序列化表示，每组子节点由空值 null 分隔（请参见示例）。
 
- 
 
 进阶：
 
@@ -37,6 +36,23 @@ var postorder = function(root) {
     traverse(root);
     return res;
 };
+
+
+var postorder = function(root) {
+    const res = [];
+
+    function traverse(root) {
+        if(root) {
+            root.children.forEach(child => {
+                traverse(child);
+            });
+            res.push(root.val);
+        }
+    }
+
+    traverse(root);
+    return res;
+}
 
 
 

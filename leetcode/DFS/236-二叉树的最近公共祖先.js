@@ -33,19 +33,6 @@ p 和 q 均存在于给定的二叉树中。
  * @return {TreeNode}
  */
 var lowestCommonAncestor = function(root, p, q) {
-    if(!root || p == root || q == root) { 
-        return root;
-    }
-
-    let left = lowestCommonAncestor(root.left, p, q);
-    let right = lowestCommonAncestor(root.right, p, q);
-
-    return left === null ? right : (right === null ? left : root);
-};
-
-
-
-var lowestCommonAncestor = function(root, p, q) {
     if(!root || p == root || q == root) {
         return root;
     }
@@ -61,13 +48,12 @@ var lowestCommonAncestor = function(root, p, q) {
     }
 }
 
-
 var lowestCommonAncestor = function(root, p, q) {
     if(!root || p == root || q == root) {
         return root;
     }
-    let left = lowestCommonAncestor(root.left);
-    let right = lowestCommonAncestor(root.right);
+    let left = lowestCommonAncestor(root.left, p, q);
+    let right = lowestCommonAncestor(root.right, p, q);
     if(left && right) {
         return root;
     }

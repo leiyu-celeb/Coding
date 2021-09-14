@@ -30,18 +30,18 @@
  * @param {number[][]} A
  * @return {number[][]}
  */
-// var flipAndInvertImage = function(A) {
-//     for(let arr of A){
-//         arr.reverse();
-//         for(let item in arr){
-//             if(arr[item] == 1) {
-//                 arr[item] = 0;
-//             }else{
-//                 arr[item] = 1;
-//             }
-//         }
-//     }
-// };
+var flipAndInvertImage = function(A) {
+    for(let arr of A){
+        arr.reverse();
+        for(let item in arr){
+            if(arr[item] == 1) {
+                arr[item] = 0;
+            }else{
+                arr[item] = 1;
+            }
+        }
+    }
+};
 
 
 

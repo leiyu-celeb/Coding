@@ -49,5 +49,5 @@ const EventUtils = {
         event.returnValue = false;
       }
     }
-  };
+};
   

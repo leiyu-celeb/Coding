@@ -23,4 +23,16 @@ var bstToGst = function(root) {
     return root;
 };
 
+var bstToGst = function(root) {
+    let sum = 0;
+    const inorderTraverse = function(node) {
+        if(!node) return null;
+        inorderTraverse(node.right);
+        sum += node.val;
+        node.val = sum;
+        inorderTraverse(node.left);
+    }
+    inorderTraverse(root);
+    return root;
+}
 

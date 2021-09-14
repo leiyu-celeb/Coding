@@ -48,7 +48,7 @@
 // };
 
 
-//通过：因为c的范围很大，只要在sqrt(c)内找就行
+//通过：因为c的范围很大，只要在Math.sqrt(c)内找就行
 var judgeSquareSum = function(c) {
     if(c === 0) return true;
     for(let i = 0; i * i <= c; i++) {          

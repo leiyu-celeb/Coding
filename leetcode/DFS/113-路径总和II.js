@@ -41,3 +41,24 @@ var pathSum = function(root, targetSum) {
 };
 
 
+var pathSum = function(root, targetSum) {
+    const result = [];
+
+    const dfs = function(root, path, treeSum) {
+        if(!root) return ;
+        path.push(root.val);
+        treeSum += root.val;
+        if(!root.left && !root.right) {
+            if(treeSum === targetSum) {
+                result.push(path.slice());
+            }
+        }else{
+            dfs(root.left, path, treeSum);
+            dfs(root.right, path, treeSum);
+        }
+        path.pop();
+    }
+
+    dfs(root, [], 0);
+    return result;
+}

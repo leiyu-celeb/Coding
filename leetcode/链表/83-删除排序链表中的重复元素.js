@@ -45,3 +45,16 @@ var deleteDuplicates = function(head) {
     return head;
 }
 
+var deleteDuplicates = function(head) {
+    if(!head) return null;
+    let slow = head, fast = head;
+    while(fast) {
+        if(slow.val != fast.val) {
+            slow.next = fast;
+            slow = slow.next;
+        }
+        fast = fast.next;
+    }
+    slow.next = null;
+    return head;
+}

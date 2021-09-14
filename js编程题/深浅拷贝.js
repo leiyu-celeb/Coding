@@ -156,6 +156,32 @@ const deepClone = function(target) {
 }
 
 
+const deepClone = function(target) {
+    let result;
+    if(typeof target === 'object') {
+        if(Array.isArray(target)) {
+            result = [];
+            for(let i = 0; i < target.length; i++) {
+                result[i] = deepClone(target[i]);
+            }
+        } else if (target == null) {
+            result = null;
+        } else {
+            result = {};
+            for(const i in target) {
+                result[i] = deepClone(target[i]);
+            }
+        }
+    } else {
+        result = target;
+    }
+    return result;
+}
+
+
+
+
+
 var foo = function() {
     console.log(1);
 }

@@ -27,6 +27,6 @@ URL化。编写一种方法，将字符串中的空格全部替换为%20。
  * @param {number} length
  * @return {string}
  */
- var replaceSpaces = function(S, length) {
+var replaceSpaces = function(S, length) {
     return S.substr(0, length).replace(/\s/g, '%20');
 };

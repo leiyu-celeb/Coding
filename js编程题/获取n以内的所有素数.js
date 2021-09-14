@@ -47,6 +47,24 @@ function isPrime(num) {
 }
 
 
+function isPrime(num) {
+    if(num == 2 || num == 3) {
+        return true;
+    }
+    if(num % 6 != 1 && num % 6 != 5) {
+        return false;
+    }
+    for(let i = 5; i <= Math.sqrt(num); i = i + 6) {
+        if(num % i == 0 || num % (i + 2) == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+
 
 //统计所有小于非负整数 n 的质数的数量
 function getPrimeCount(n) {

@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
- var isBalanced = function(root) {
+var isBalanced = function(root) {
     if(!root) return true;       //空树为AVL树
     //如果左右子树的最大深度差距小于等于1，再去判断左右子树是否分别符合AVL树的特点
     return Math.abs(maxDepth(root.left) - maxDepth(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);

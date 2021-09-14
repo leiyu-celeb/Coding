@@ -8,13 +8,12 @@
 例如，给定如下二叉搜索树:  root = [6,2,8,0,4,7,9,null,null,3,5]
 
 
-
-
 示例 1:
 
 输入: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 8
 输出: 6 
 解释: 节点 2 和节点 8 的最近公共祖先是 6。
+
 示例 2:
 
 输入: root = [6,2,8,0,4,7,9,null,null,3,5], p = 2, q = 4
@@ -102,3 +101,15 @@ var lowestCommonAncestor = function(root, p, q) {
         return root
     }
 };
+
+
+var lowestCommonAncestor = function(root, p, q) {
+    if(!root) return root;
+    if(p.val < root.val && q.val < root.val) {
+        return lowestCommonAncestor(root.left, p, q);
+    }else if(p.val > root.val && q.val > root.val) {
+        return lowestCommonAncestor(root.right, p, q);
+    }else{
+        return root;
+    }
+}

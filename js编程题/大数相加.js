@@ -6,10 +6,29 @@ const bigAdd = (a, b) => {
     let curSum  = 0;
     let carry = 0;
     let sum = "";
-    for(let i = maxLength - 1; i >= 0; i++) {
+    for(let i = maxLength - 1; i >= 0; i--) {
         curSum = parseInt(a[i]) + parseInt(b[i]) + carry;
         carry = Math.floor(curSum / 10);
         sum = curSum % 10 + sum;
+    }
+    if(carry == 1) {
+        sum = '1' + sum;
+    }
+    return sum;
+}
+
+
+const bigAdd = function(a, b) {
+    let maxLength = Math.max(a.length, b.length);
+    a = a.padStart(maxLength, 0);
+    b = b.padStart(maxLength, 0);
+    let curSum = 0;
+    let carry = 0;
+    let sum = "";
+    for(let i = maxLength - 1; i >= 0; i--) {
+        curSum = parseInt(a[i]) + parseInt(b[i]) + carry;
+        carry = Math.floor(curSum / 10);
+        sum = sum + curSum % 10;
     }
     if(carry == 1) {
         sum = '1' + sum;
@@ -73,7 +92,7 @@ function bigAdd(a, b){
     let f = 0;
     let t = 0;
     let sum = "";
-    for(let i = maxLength - 1; i >= 0; i++){
+    for(let i = maxLength - 1; i >= 0; i--){
         t = parseInt(a[i]) + parseInt(b[i]) + f;
         f = Math.floor(t / 10);
         sum = t % 10 + sum;

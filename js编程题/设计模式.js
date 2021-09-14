@@ -17,6 +17,25 @@ class Factory{
 Factory.create('yck').alertName();     //静态方法，直接 类名.方法名 调用
 
 
+class Man{
+    constructor(name) {
+        this.name = name;
+    }
+    alertName(){
+        console.log(this.name);
+    }
+}
+
+class Factory {
+    static create(name){
+        return new Man(name);
+    }
+}
+
+
+
+
+
 //单例模式：
 class Singleton {
     constructor(){

@@ -23,7 +23,7 @@ N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（
  * @param {Node|null} root
  * @return {number}
  */
- var maxDepth = function(root) {
+var maxDepth = function(root) {
     if(!root) {
         return 0;
     } else {
@@ -40,3 +40,22 @@ N 叉树输入按层序遍历序列化表示，每组子节点由空值分隔（
         return depth;
     }
 };
+
+
+var maxDepth = function(root) {
+    if(!root) {
+        return 0;
+    }else{
+        let depth = 1;
+        function dfs(root, currentDepth) {
+            if(root) {
+                if(currentDepth > depth) {
+                    depth = currentDepth;
+                }
+                root.children.forEach(child => dfs(child, currentDepth + 1));
+            }
+        }
+        dfs(root, 1);
+        return depth;
+    }
+}

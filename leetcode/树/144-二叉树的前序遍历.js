@@ -65,17 +65,17 @@ var preorderTraversal = function(root) {
 };
 
 var preorderTraversal = function(root) {
-  if(!root) return [];
-  const res = [];
-  const stack = [];
-  stack.push(root);
-  while(stack.length) {
-    const node = stack.pop();
-    res.push(node.val);
-    if(node.right) stack.push(node.right);
-    if(node.left) stack.push(node.left);
-  }
-  return res;
+    if(!root) return [];
+    const res = [];
+    const stack = [];
+    stack.push(root);
+    while(stack.length) {
+        const node = stack.pop();
+        res.push(node.val);
+        if(node.right) stack.push(node.right);
+        if(node.left) stack.push(node.left);
+    }
+    return res;
 }
 
 

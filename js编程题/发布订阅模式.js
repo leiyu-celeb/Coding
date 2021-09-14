@@ -3,21 +3,21 @@ function Subject() {      //被观察者
 }
 
 Subject.prototype = {
-  //订阅
-  subscribe: function(observer) {
-    this.observers.push(observer);
-  },
-  //取消订阅
-  unsubscribe: function(observerToRemove) {
-    this.observers = this.observers.filter(observer => {
+    //订阅
+    subscribe: function(observer) {
+      this.observers.push(observer);
+    },
+    //取消订阅
+    unsubscribe: function(observerToRemove) {
+      this.observers = this.observers.filter(observer => {
       return observer !== observerToRemove;
-    })
-  },
-   notify: function() {
-     this.observers.forEach(observer => {
-       observer.call();   //observer是function
-     })
-   }
+      })
+    },
+    notify: function() {
+        this.observers.forEach(observer => {
+            observer.call();   //observer是function
+        })
+    }
 }
 
 const subject = new Subject();

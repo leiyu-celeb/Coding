@@ -52,6 +52,20 @@ function numFormatReg(num) {
     }
 }
 
+
+function numFormatReg(num) {
+    num = num.toString().split('.');
+    var reg = /(?=(\B)(\d{3})+$)/g;
+    num[0] = num[0].replace(reg, ',');
+    if(num[1]){
+        return num[0] + '.' + num[1];
+    }else{
+        return num[0];
+    }
+}
+
+
+
 console.log(numFormatReg(a));
 console.log(numFormatReg(b));
 

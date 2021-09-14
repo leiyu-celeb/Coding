@@ -101,6 +101,9 @@ function inherit(child, parent) {
 }
 
 
+
+
+
 // inherit(Child, Parent);
 
 // var child1 = new Child('leiyu', 18);

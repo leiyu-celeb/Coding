@@ -44,3 +44,23 @@ var kthSmallest = function(root, k) {
     inorderTraverse(root);
     return res;
 };
+
+
+var kthSmallest = function(root, k) {
+    let res = 0;
+
+    const inorderTraverse = function(node) {
+        if(node) {
+            inorderTraverse(node.left);
+            k--;
+            if(k === 0) {
+                res = node.val;
+                return ;
+            }
+            inorderTraverse(node.right);
+        }
+    }
+
+    inorderTraverse(root);
+    return res;
+}
