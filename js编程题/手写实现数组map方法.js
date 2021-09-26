@@ -12,5 +12,5 @@ function map(arr, mapCallback) {
       }
       return result;
     }
-  }
+}
   

@@ -45,7 +45,41 @@ function mynew() {
     var obj = {};
     var Constructor = [].shift.call(arguments);
     obj.__proto__ = Constructor.prototype;
+    obj.b = 12;
     var ret = Constructor.apply(obj, arguments);
     return typeof ret == 'object' ? ret : obj;
 }
+
+function mynew(){
+    var obj = {};
+    var Constructor = [].shift.call(arguments);
+    obj.__proto__ = Constructor.prototype;
+    var ret = Constructor.apply(obj, arguments);
+    return typeof ret === 'object' ? ret : obj;
+}
+
+
+
+
+
+function A() {
+    this.a = 1;
+};
+A.prototype.b = 2;
+ 
+function myNew() {
+    var obj = {};
+    var Constructor = [].shift.call(arguments);
+    obj.__proto__ = Constructor.prototype;
+    obj.b = 12;
+    var ret = Constructor.apply(obj, arguments);
+    return typeof ret == 'object' ? ret : obj;
+}
+ 
+var a1 = myNew(A);
+ 
+console.log(a1.a) // 1
+console.log(a1.b) // 12
+
+
 

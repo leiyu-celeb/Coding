@@ -49,6 +49,7 @@ function curry(fn, ...args) {
 
 
 
+
 //方法三：已验证，正确
 function curry3(fn) {
     if(fn.length <= 1) return fn;  //fn参数列表为0或者1时，不需要柯里化

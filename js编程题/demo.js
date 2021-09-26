@@ -35,28 +35,49 @@
 
 // console.log(getMinMP(n,c1,c2, str));
 
-console.log(1);
+// console.log(1);
 
-setTimeout(() => {
-    console.log(2);
-}, 2000)
+// setTimeout(() => {
+//     console.log(2);
+// }, 2000)
 
-let start = new Date();
-while(new Date() - start < 3000){}
+// let start = new Date();
+// while(new Date() - start < 3000){}
 
-setTimeout(() => {
-    console.log(4);
-}, 0)
+// setTimeout(() => {
+//     console.log(4);
+// }, 0)
 
-new Promise((resolve, reject) =>{
-    console.log(5);
-    foo.bar(100);
-}).then(() => {
-    console.log(6);
-}).then(() => {
-    console.log(7);
-}).catch(() => {
-    console.log(8);
-})
+// new Promise((resolve, reject) =>{
+//     console.log(5);
+//     foo.bar(100);
+// }).then(() => {
+//     console.log(6);
+// }).then(() => {
+//     console.log(7);
+// }).catch(() => {
+//     console.log(8);
+// })
 
-console.log(9);
+// console.log(9);
+
+
+class Cat {  
+    constructor () {    
+        this.name = 'guaiguai'    
+        var type = 'constructor'    
+        this.getType = () => {      
+            console.log(this.type)      
+            console.log(type)    
+        }  
+    }  
+    type = 'class'  
+    getType = () => {    
+        console.log(this.type)    
+        console.log(type)  
+    }
+}
+var type = 'window'
+var guaiguai = new Cat()
+guaiguai.getType()
+console.log(guaiguai)

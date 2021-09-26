@@ -26,6 +26,7 @@ function flat(arr) {
             result.push(item);
         }
     })
+    return result;
 }
 
 

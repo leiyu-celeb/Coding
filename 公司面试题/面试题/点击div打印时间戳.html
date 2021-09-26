@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="outer">
+        <div class="inner"></div>
+    </div>
+    <div style="width: 100px; height: 100px;">
+
+    </div>
+
+    <style>
+        .outer {
+            width: 200px;
+            height: 200px;
+            background-color:pink;
+        }
+        .inner {
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+
+</body>
+</html>
+
+<script>
+    function main() {
+        document.addEventListener('click', callback, false);
+    }
+
+    function callback(e){
+        e.stopPropagation();
+        if(e.target.localName === 'div') {
+            let curTimestamps = Date.now();
+            console.log(curTimestamps);
+        }
+    }
+
+    main();
+</script>
