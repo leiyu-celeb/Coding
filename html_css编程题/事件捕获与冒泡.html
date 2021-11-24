@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div id="id">
+        <button id="btn">Button</button>
+    </div>
+    <script>
+        const $div = document.querySelector('#id')
+        const $btn = document.querySelector('#btn')
+        document.addEventListener('click', () => {
+            console.log('document click')
+        })
+        $div.addEventListener('click', (e) => {
+            console.log('div click 1')
+        })
+        $div.addEventListener('click', (e) => {
+            e.stopPropagation()
+            console.log('div click 2')
+        }, true)
+        $div.addEventListener('click', (e) => {
+            console.log('div click 3')
+        })
+        $btn.addEventListener('click', () => {
+            console.log('button click')
+        })
+    </script>
+</body>
+
+
+<script>
+    
+</script>
+</html>
+
